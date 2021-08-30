@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+<h1 th:text="${'Job: ' + job.name}">Default Title</h1>
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<div class="job-listing">
+    <p th:text="${'ID: ' + job.id}"></p>
+    <p th:text="${'Name: ' + job.name}"></p>
+    <p th:text="${'Current Quantity: ' + job.employer}"></p>
+<!--    <p th:text="${'Quantity Taken: ' + job.employer}  "></p>-->
+    <p th:text="${'Replenish Quantity: ' + job.employer}"></p>
+<!--    <p th:text="${'Skill: ' + job.skill}"></p>-->
+
+<!--    <form action="${'/delete/' + job.id}" method = 'post'>-->
+<!--        <form th:action="@{'/delete/' + ${job.id}}" method = 'post'>-->
+<!--    <form th:action="${delete/} + ${job.id}">-->
+        <form th:action="${'delete/'+ job.id}" method="post">
+<!--        <a th:href="@{/delete/{id}(id=${employee.id})}"></a>-->
+        <label for="quantity">Quantity Taken</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10000">
+        <input type="submit">
+        <button onclick="myFunction()">Delete</button>
+
+    </form>
+</div>
+
+
+</body>
+</html>
