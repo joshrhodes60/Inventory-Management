@@ -1,5 +1,6 @@
 //package org.launchcode.inventorymanagement.controllers;
 //
+//import org.apache.catalina.User;
 //import org.launchcode.inventorymanagement.models.User;
 //import org.launchcode.inventorymanagement.models.data.UserRepository;
 //import org.launchcode.inventorymanagement.models.dto.LoginFormDTO;

@@ -49,8 +49,16 @@ public class HomeController {
 //        }
 
         jobRepository.deleteById(Integer.parseInt(id));
-        return "redirect:";
+        return "add";
     }
+
+//    @PostMapping("/delete")
+//    public String processDeleteJobForm(@RequestParameter("id") long jobId) {
+//
+//
+//        jobRepository.deleteJob(jobId);
+//        return "redirect:";
+//    }
 
 //    @RequestMapping(path = "/delete/{id}")
 //    public String deleteEmployeeById(Model model, @PathVariable("id") Long id)
