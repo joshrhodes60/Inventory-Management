@@ -49,7 +49,8 @@ public class HomeController {
 //        }
 
         jobRepository.deleteById(Integer.parseInt(id));
-        return "add";
+        model.addAttribute("jobs", jobRepository.findAll());
+        return "index";
     }
 
 //    @PostMapping("/delete")
