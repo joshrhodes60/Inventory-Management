@@ -1,7 +1,7 @@
 package org.launchcode.inventorymanagement.controllers;
 
-import org.launchcode.inventorymanagement.models.data.JobRepository;
-import org.launchcode.inventorymanagement.models.Job;
+import org.launchcode.inventorymanagement.models.Product;
+import org.launchcode.inventorymanagement.models.data.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,40 +16,40 @@ import java.util.Optional;
 public class HomeController {
 
     @Autowired
-    private JobRepository jobRepository;
+    private ProductRepository productRepository;
 
     @RequestMapping("")
     public String index(Model model) {
-        model.addAttribute("jobs", jobRepository.findAll());
+        model.addAttribute("products", productRepository.findAll());
         return "index";
     }
 
     @GetMapping("add")
-    public String displayAddJobForm(Model model) {
-        model.addAttribute(new Job());
+    public String displayAddProductForm(Model model) {
+        model.addAttribute(new Product());
         return "add";
     }
 
     @PostMapping("add")
-    public String processAddJobForm(@ModelAttribute @Valid Job newJob,
+    public String processAddProductForm(@ModelAttribute @Valid Product newProduct,
                                     Errors errors) {
 
         if (errors.hasErrors()) {
             return "add";
         }
 
-        jobRepository.save(newJob);
+        productRepository.save(newProduct);
         return "redirect:";
     }
     @RequestMapping(path = "view/delete/{id}")
-    public String processDeleteJobForm(Model model, @PathVariable("id") String id) {
+    public String processDeleteProductForm(Model model, @PathVariable("id") String id) {
 
 //        if (errors.hasErrors()) {
 //            return "view";// handle when errors
 //        }
 
-        jobRepository.deleteById(Integer.parseInt(id));
-        model.addAttribute("jobs", jobRepository.findAll());
+        productRepository.deleteById(Integer.parseInt(id));
+        model.addAttribute("products", productRepository.findAll());
         return "index";
     }
 
@@ -70,13 +70,13 @@ public class HomeController {
 //    }
 
 
-        @GetMapping("view/{jobId}")
-        public String displayViewJob (Model model,@PathVariable int jobId){
+        @GetMapping("view/{productId}")
+        public String displayViewProduct (Model model,@PathVariable int productId){
 
-            Optional optJob = jobRepository.findById(jobId);
-            if (!optJob.isEmpty()) {
-                Job job = (Job) optJob.get();
-                model.addAttribute("job", job);
+            Optional optProduct = productRepository.findById(productId);
+            if (!optProduct.isEmpty()) {
+                Product product = (Product) optProduct.get();
+                model.addAttribute("product", product);
                 return "view";
             } else {
                 return "redirect:/";

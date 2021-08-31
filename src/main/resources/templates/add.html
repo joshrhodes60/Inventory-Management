@@ -11,20 +11,20 @@
     <div class="form-group">
         <label th:for="name">Product</label>
 
-        <input class="form-control" th:field="${job.name}" />
+        <input class="form-control" th:field="${product.name}" />
 
-        <span th:errors="${job.name}" class="error"></span>
+        <span th:errors="${product.name}" class="error"></span>
     </div>
     <div class="form-group">
         <label th:for="name">Quantity</label>
-        <input class="form-control" th:field="${job.employer}" />
-        <span th:errors="${job.employer}" class="error"></span>
+        <input class="form-control" th:field="${product.employer}" />
+        <span th:errors="${product.employer}" class="error"></span>
 
     </div>
 <!--    <div class="form-group">-->
 <!--        <label th:for="name">Skill</label>-->
-<!--        <input class="form-control" th:field="${job.skill}" />-->
-<!--        <span th:errors="${job.skill}" class="error"></span>-->
+<!--        <input class="form-control" th:field="${product.skill}" />-->
+<!--        <span th:errors="${product.skill}" class="error"></span>-->
 <!--    </div>-->
 
     <input type="submit" value="Add Product" />
