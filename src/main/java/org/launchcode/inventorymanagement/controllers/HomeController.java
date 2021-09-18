@@ -53,21 +53,17 @@ public class HomeController {
         return "index";
     }
 
-//    @PostMapping("/delete")
-//    public String processDeleteJobForm(@RequestParameter("id") long jobId) {
-//
-//
-//        jobRepository.deleteJob(jobId);
-//        return "redirect:";
-//    }
+    @RequestMapping(path = "view/submit/{id}")
+    public String processSubmitProductForm(Model model, @PathVariable("id") String id) {
 
-//    @RequestMapping(path = "/delete/{id}")
-//    public String deleteEmployeeById(Model model, @PathVariable("id") Long id)
-//            throws RecordNotFoundException
-//    {
-//        service.deleteEmployeeById(id);
-//        return "redirect:/";
-//    }
+
+//        productRepository.(Integer.parseInt(id));
+        model.addAttribute("products", productRepository.findAll());
+//given the id you want to change the quantity to what you put in the submit button
+
+        return "index";
+    }
+
 
 
         @GetMapping("view/{productId}")
@@ -82,6 +78,17 @@ public class HomeController {
                 return "redirect:/";
             }
         }
+// REPLENISH CODE
+//    if(currentQuantity < 300){
+//        System.out.println("Needs restock soon!");
+//    }
+//       if(replinishQuantity < 200){
+//        System.out.println("Refill!");
+//    }
+//          if(safetyStock < 100){
+//        System.out.println("Refill safety stock!")
+//    };
+
 
 
 }

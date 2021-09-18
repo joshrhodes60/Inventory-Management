@@ -10,20 +10,23 @@
 <div class="product-listing">
     <p th:text="${'ID: ' + product.id}"></p>
     <p th:text="${'Name: ' + product.name}"></p>
-    <p th:text="${'Current Quantity: ' + product.employer}"></p>
+    <p th:text="${'Current Quantity: ' + product.quantity}"></p>
 <!--    <p th:text="${'Quantity Taken: ' + product.employer}  "></p>-->
-    <p th:text="${'Replenish Quantity: ' + product.employer}"></p>
+    <p th:text="${'Replenish Quantity: ' + product.quantity}"></p>
+    <p th:text="${'Safety Stock: ' + product.quantity}"></p>
 <!--    <p th:text="${'Skill: ' + product.skill}"></p>-->
-
+    <label form="quantity">Quantity Taken</label>
+    <form th:action="*{'submit/' + product.id}" method='post'>// work on submit button
+    <input type="number" id="quantity" name="quantity" min="1" max="10000">
+    <input type="submit">
+    </form>
 <!--    <form action="${'/delete/' + product.id}" method = 'post'>-->
 <!--        <form th:action="@{'/delete/' + ${product.id}}" method = 'post'>-->
 <!--    <form th:action="${delete/} + ${product.id}">-->
 <!--        <form th:action="${'delete/'+ product.id}" method="post">-->
             <form th:action="*{'delete/'+ product.id}" method="post">
-<!--        <a th:href="@{/delete/{id}(id=${employee.id})}"></a>-->
-        <label for="quantity">Quantity Taken</label>
-        <input type="number" id="quantity" name="quantity" min="1" max="10000">
-        <input type="submit">
+
+
         <button onclick="myFunction()">Delete</button>
 
     </form>

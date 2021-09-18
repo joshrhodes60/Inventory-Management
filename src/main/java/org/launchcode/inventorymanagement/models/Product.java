@@ -1,5 +1,9 @@
 package org.launchcode.inventorymanagement.models;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.launchcode.inventorymanagement.models.data.ProductRepository;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -10,20 +14,27 @@ public class Product extends AbstractEntity{
     @NotNull
     @Size(min=3, max=50)
     private String name;
-
-    private String employer;
-    private String skill;
+    private String currentQuantity;
+    private String replenishQuantity;
+    private String quantity;
+    private String safetyStock;
 
     public Product() {
     }
 
+
     // Initialize the id and value fields.
-    public Product(String aName, String anEmployer, String someSkill) {
+    public Product(String aName, String Quantity, String safetyStock, String currentQuantity, String replenishQuantity) {
         super();
         this.name = aName;
-        this.employer = anEmployer;
-        this.skill = someSkill;
+        this.quantity = Quantity;
+        this.safetyStock = safetyStock;
+        this.currentQuantity = currentQuantity;
+        this.replenishQuantity = replenishQuantity;
+
     }
+
+
 
     // Getters and setters.
 
@@ -35,24 +46,42 @@ public class Product extends AbstractEntity{
         this.name = name;
     }
 
-    public String getEmployer() {
-        return employer;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setEmployer(String employer) {
-        this.employer = employer;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
-    public String getSkill() {
-        return skill;
+    public String getSafetyStock() {
+        return safetyStock;
     }
 
-    public void setSkill(String skill) {
-        this.skill = skill;
+    public void setSafetyStock(String safetyStock) {
+        this.safetyStock = safetyStock;
+    }
+
+    public String getCurrentQuantity() {
+        return currentQuantity;
+    }
+
+    public void setCurrentQuantity(String currentQuantity) {
+        this.currentQuantity = currentQuantity;
+    }
+
+    public String getReplenishQuantity() {
+        return replenishQuantity;
+    }
+
+    public void setReplenishQuantity(String replenishQuantity) {
+        this.replenishQuantity = replenishQuantity;
     }
 
     @Override
     public String toString() {
         return name;
     }
+
+
 }
