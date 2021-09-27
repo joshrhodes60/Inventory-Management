@@ -11,13 +11,13 @@ package org.launchcode.inventorymanagement.controllers;
 //        model.addAttribute("jobs", jobRepository.findAll());
 //        return "index";
 //    }
-
+//
 //    @GetMapping("delete")
 //    public String displayDeleteJobForm(Model model) {
 //        model.addAttribute(new Job());
 //        return "delete";
 //    }
-
+//
 //    @PostMapping("delete")
 //    public String processDeleteJobForm(@ModelAttribute @Valid Job newJob,
 //                                       Errors errors) {
