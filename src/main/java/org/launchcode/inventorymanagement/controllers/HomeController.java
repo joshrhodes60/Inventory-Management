@@ -93,7 +93,7 @@ public class HomeController {
                                         Errors errors,int id) {
         Optional optProduct = productRepository.findById(id);
         Product product = (Product) optProduct.get();
-        int quantity = Integer.parseInt(product.getQuantity())+10;
+        int quantity = Integer.parseInt(product.getQuantity());
 //        int quantity = Integer.parseInt(product.getQuantity());
         product.setQuantity(String.valueOf(quantity));
 
@@ -119,7 +119,7 @@ public class HomeController {
 //given the id you want to change the quantity to what you put in the submit button
         Optional optProduct = productRepository.findById(id);
         Product product = (Product) optProduct.get();
-        int quantity = Integer.parseInt(product.getQuantity())+10;
+        int quantity = Integer.parseInt(product.getQuantity())-10;
         product.setQuantity(String.valueOf(quantity));
         productRepository.save(product);
 

@@ -18,19 +18,21 @@ public class Product extends AbstractEntity{
     private String replenishQuantity;
     private String quantity;
     private String safetyStock;
+    private String quantityTaken;
 
     public Product() {
     }
 
 
     // Initialize the id and value fields.
-    public Product(String aName, String Quantity, String safetyStock, String currentQuantity, String replenishQuantity) {
+    public Product(String aName, String Quantity, String safetyStock, String currentQuantity, String replenishQuantity,String quantityTaken) {
         super();
         this.name = aName;
         this.quantity = Quantity;
         this.safetyStock = safetyStock;
         this.currentQuantity = currentQuantity;
         this.replenishQuantity = replenishQuantity;
+        this.quantityTaken = quantityTaken;
 
     }
 
@@ -76,6 +78,14 @@ public class Product extends AbstractEntity{
 
     public void setReplenishQuantity(String replenishQuantity) {
         this.replenishQuantity = replenishQuantity;
+    }
+
+    public String getQuantityTaken() {
+        return quantityTaken;
+    }
+
+    public void setQuantityTaken(String quantityTaken) {
+        this.quantityTaken = quantityTaken;
     }
 
     @Override
